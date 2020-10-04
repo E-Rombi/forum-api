@@ -2,6 +2,7 @@ package br.com.alura.forum.modelo;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,10 +16,9 @@ public class Resposta {
 	private Long id;
 	private String mensagem;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Topico topico;
 	private LocalDateTime dataCriacao = LocalDateTime.now();
-	@ManyToOne
 	private Usuario autor;
 	private Boolean solucao = false;
 

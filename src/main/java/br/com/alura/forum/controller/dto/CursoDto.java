@@ -1,5 +1,7 @@
 package br.com.alura.forum.controller.dto;
 
+import org.springframework.data.domain.Page;
+
 import br.com.alura.forum.modelo.Curso;
 
 public class CursoDto {
@@ -19,5 +21,9 @@ public class CursoDto {
 
 	public String getCategoria() {
 		return categoria;
+	}
+	
+	public static Page<CursoDto> converter(Page<Curso> cursos) {
+		return cursos.map(CursoDto::new);
 	}
 }

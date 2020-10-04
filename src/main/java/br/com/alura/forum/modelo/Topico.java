@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -25,7 +26,7 @@ public class Topico {
 	private StatusTopico status = StatusTopico.NAO_RESPONDIDO;
 	@ManyToOne
 	private Usuario autor;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Curso curso;
 	@OneToMany(mappedBy = "topico")
 	private List<Resposta> respostas = new ArrayList<>();

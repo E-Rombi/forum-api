@@ -1,9 +1,13 @@
 package br.com.alura.forum.modelo;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Curso {
@@ -13,6 +17,17 @@ public class Curso {
 	private String nome;
 	private String categoria;
 	
+	@OneToMany(mappedBy = "curso", cascade = CascadeType.ALL)
+	private List<Topico> topicos;
+	
+	public Curso() { }
+	
+	public Curso(String nome, String categoria) {
+		super();
+		this.nome = nome;
+		this.categoria = categoria;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
