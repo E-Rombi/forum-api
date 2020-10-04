@@ -6,7 +6,6 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
-import org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -43,7 +42,6 @@ public class CursoController {
 	@Cacheable(value = "listaCursos")
 	public Page<CursoDto> listar(@PageableDefault(sort = "id", direction = Direction.ASC) Pageable page) {
 		Page<Curso> cursos = cursoRepository.findAll(page);
-		System.out.println(page.toString());
 		return CursoDto.converter(cursos);
 		
 	}

@@ -2,6 +2,8 @@ package br.com.alura.forum.controller.dto;
 
 import java.time.LocalDateTime;
 
+import org.springframework.data.domain.Page;
+
 import br.com.alura.forum.modelo.Resposta;
 
 public class RespostaDto {
@@ -15,7 +17,7 @@ public class RespostaDto {
 		this.id = resposta.getId();
 		this.mensagem = resposta.getMensagem();
 		this.dataCriacao = resposta.getDataCriacao();
-		this.nomeAutor = resposta.getAutor().getNome();
+		this.nomeAutor = (!(resposta.getAutor() == null)) ? resposta.getAutor().getNome() : "";
 	}
 
 	public Long getId() {
@@ -32,6 +34,10 @@ public class RespostaDto {
 
 	public String getNomeAutor() {
 		return nomeAutor;
+	}
+	
+	public static Page<RespostaDto> converter(Page<Resposta> respostas) {
+		return respostas.map(RespostaDto::new);
 	}
 	
 }

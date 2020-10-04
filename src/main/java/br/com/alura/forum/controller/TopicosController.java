@@ -8,7 +8,6 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
-
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -28,10 +27,12 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import br.com.alura.forum.controller.dto.DetalhesDoTopicoDto;
 import br.com.alura.forum.controller.dto.TopicoDto;
+import br.com.alura.forum.controller.dto.TopicoRespostasDto;
 import br.com.alura.forum.controller.form.AtualizacaoTopicoForm;
 import br.com.alura.forum.controller.form.TopicoForm;
 import br.com.alura.forum.modelo.Topico;
 import br.com.alura.forum.repository.CursoRepository;
+import br.com.alura.forum.repository.RespostaRepository;
 import br.com.alura.forum.repository.TopicoRepository;
 
 @RestController
@@ -103,12 +104,27 @@ public class TopicosController {
 		
 		return ResponseEntity.notFound().build();
 	}
+	
+	@GetMapping("/{id}/respostas")
+	public ResponseEntity<TopicoRespostasDto> listaRespostas(@PathVariable Long id, @PageableDefault(direction = Direction.DESC, sort = "id") Pageable page) {
+		Optional<Topico> topico = topicoRepository.findById(id);
+		if (topico.isPresent()) {
+			return ResponseEntity.ok(new TopicoRespostasDto(topico.get()));
+		}
+		return ResponseEntity.notFound().build();
+	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
-
-
-
-
 
 
 

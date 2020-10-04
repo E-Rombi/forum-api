@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class Resposta {
 
@@ -16,11 +18,21 @@ public class Resposta {
 	private Long id;
 	private String mensagem;
 	
+	@JsonManagedReference
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Topico topico;
 	private LocalDateTime dataCriacao = LocalDateTime.now();
 	private Usuario autor;
 	private Boolean solucao = false;
+	
+	public Resposta() { }
+	
+	public Resposta(String mensagem, Topico topico, LocalDateTime dataCriacao, Boolean solucao) {
+		this.mensagem = mensagem;
+		this.topico = topico;
+		this.dataCriacao = dataCriacao;
+		this.solucao = solucao;
+	}
 
 	@Override
 	public int hashCode() {
