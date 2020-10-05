@@ -46,6 +46,8 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 		.antMatchers(HttpMethod.GET, "/respostas").permitAll()
 		.antMatchers(HttpMethod.POST, "/auth").permitAll()
 		.antMatchers(HttpMethod.GET, "/actuator/**").permitAll()
+		.antMatchers("/docs").permitAll()
+		.antMatchers(HttpMethod.GET, "/forum-api/v2/api-docs").permitAll()
 		.antMatchers(HttpMethod.GET, "/h2-console").permitAll()
 		.antMatchers(HttpMethod.GET, "/h2-console/**").permitAll()
 		.anyRequest().authenticated()

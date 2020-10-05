@@ -8,10 +8,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
+@XmlRootElement
 public class Resposta {
 
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +29,14 @@ public class Resposta {
 	
 	public Resposta() { }
 	
+	public Resposta(Long id, String mensagem) {
+		super();
+		this.id = id;
+		this.mensagem = mensagem;
+	}
+
+
+
 	public Resposta(String mensagem, Topico topico, LocalDateTime dataCriacao, Boolean solucao) {
 		this.mensagem = mensagem;
 		this.topico = topico;
