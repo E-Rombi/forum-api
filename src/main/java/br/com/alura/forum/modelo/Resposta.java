@@ -23,6 +23,7 @@ public class Resposta {
 	@JsonManagedReference
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Topico topico;
+
 	private LocalDateTime dataCriacao = LocalDateTime.now();
 	private Usuario autor;
 	private Boolean solucao = false;
