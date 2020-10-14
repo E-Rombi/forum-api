@@ -8,8 +8,8 @@ INSERT INTO TOPICO(titulo, mensagem, data_criacao, status, autor_id, curso_id) V
 INSERT INTO TOPICO(titulo, mensagem, data_criacao, status, autor_id, curso_id) VALUES('Dúvida 3', 'Tag HTML', '2019-05-05 20:00:00', 'NAO_RESPONDIDO', 1, 2);
 
 
-INSERT INTO RESPOSTA (autor, data_criacao, mensagem, solucao, topico_id) VALUES (null, null, 'Resposta 1', true, 1);
-INSERT INTO RESPOSTA (autor, data_criacao, mensagem, solucao, topico_id) VALUES (null, null, 'Resposta 2', false, 1);
-INSERT INTO RESPOSTA (autor, data_criacao, mensagem, solucao, topico_id) VALUES (null, null, 'Resposta 3', false, 1);
-INSERT INTO RESPOSTA (autor, data_criacao, mensagem, solucao, topico_id) VALUES (null, null, 'Resposta 1', true, 2);
-INSERT INTO RESPOSTA (autor, data_criacao, mensagem, solucao, topico_id) VALUES (null, null, 'Resposta 2', false, 2);
+INSERT INTO RESPOSTA (autor, data_criacao, mensagem, solucao, topico_id) VALUES (null, current_date, 'Resposta 1', true, 1);
+INSERT INTO RESPOSTA (autor, data_criacao, mensagem, solucao, topico_id) VALUES (null, current_date, 'Resposta 2', false, 1);
+INSERT INTO RESPOSTA (autor, data_criacao, mensagem, solucao, topico_id) VALUES (null, current_date, 'Resposta 3', false, 1);
+INSERT INTO RESPOSTA (autor, data_criacao, mensagem, solucao, topico_id) VALUES (null, current_date, 'Resposta 1', true, 2);
+INSERT INTO RESPOSTA (autor, data_criacao, mensagem, solucao, topico_id) VALUES (null, current_date, 'Resposta 2', false, 2);

@@ -46,7 +46,6 @@ public class RespostaController {
 	@Transactional
 	public ResponseEntity<RespostaDto> cadastrar(@RequestBody @Valid RespostaForm form, UriComponentsBuilder uriBuilder) {
 		Resposta resposta = form.converter(topicoRepository);
-		System.out.println("aaaaaaaaaa: " + resposta.toString());
 		respostaRepository.save(resposta);
 		
 		URI uri = uriBuilder.path("/respostas/{id}").buildAndExpand(resposta.getId()).toUri();

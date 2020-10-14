@@ -2,6 +2,8 @@ package br.com.alura.forum.controller.dto;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import br.com.alura.forum.modelo.Resposta;
 import br.com.alura.forum.modelo.Topico;
 

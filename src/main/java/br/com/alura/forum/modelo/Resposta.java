@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -23,7 +25,6 @@ public class Resposta {
 	@JsonManagedReference
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Topico topico;
-
 	private LocalDateTime dataCriacao = LocalDateTime.now();
 	private Usuario autor;
 	private Boolean solucao = false;
